@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Semáforo Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🚦 SEMÁFORO INTELIGENTE</h1>
+
+        <div class="entrada-usuario">
+            <label for="nomeUsuario">Digite seu nome:</label>
+            <input type="text" id="nomeUsuario" placeholder="Seu nome aqui..." maxlength="20">
+            <button id="botaoIniciar">Iniciar</button>
+        </div>
+
+        <div class="semaforo" id="semaforo">
+            <div class="luz vermelha" id="luzVermelha"></div>
+            <div class="luz amarela" id="luzAmarela"></div>
+            <div class="luz verde" id="luzVerde"></div>
+        </div>
+
+        <div class="exibe-mensagem" id="exibeMensagem">
+            🚦 Sistema parado. Digite seu nome e clique em Iniciar.
+        </div>
+
+        <button class="botao-pedestre" id="botaoPedestre" disabled>
+            🚶‍♂️ PEDIR PARA ATRAVESSAR
+        </button>
+
+        <div class="painel-info">
+            <div class="contador" id="contador">0</div>
+            <div class="status" id="status">Aguardando</div>
+            <div class="info-fase" id="infoFase">Fase: --</div>
+        </div>
+
+        <div class="controles">
+            <button class="botao-controle" id="botaoPausar" disabled>⏸️ Pausar</button>
+            <button class="botao-controle" id="botaoEmergencia" disabled>🚨 Emergência</button>
+            <button class="botao-controle" id="botaoReiniciar" disabled>🔄 Reiniciar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

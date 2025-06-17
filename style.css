@@ -1,0 +1,332 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.entrada-usuario {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.entrada-usuario label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.entrada-usuario input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.entrada-usuario button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.entrada-usuario button:hover {
+    background-color: #45a049;
+}
+
+/* Container principal */
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Entrada do usuário */
+.entrada-usuario {
+    margin-bottom: 20px;
+}
+
+.entrada-usuario input {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 200px;
+    transition: border-color 0.3s ease;
+}
+
+.entrada-usuario input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.entrada-usuario label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Semáforo */
+.semaforo {
+    background: #2c3e50;
+    border-radius: 25px;
+    padding: 20px;
+    margin: 0 auto 30px;
+    width: 120px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+}
+
+.luz {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 15px auto;
+    border: 3px solid #34495e;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.luz::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 30%;
+    height: 30%;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transition: opacity 0.3s ease;
+}
+
+/* Estados das luzes */
+.vermelha {
+    background: #34495e;
+}
+
+.vermelha.ativa {
+    background: #e74c3c;
+    box-shadow: 0 0 30px #e74c3c, inset 0 0 20px rgba(255,255,255,0.2);
+    animation: pulso-vermelho 2s infinite;
+}
+
+.amarela {
+    background: #34495e;
+}
+
+.amarela.ativa {
+    background: #f39c12;
+    box-shadow: 0 0 30px #f39c12, inset 0 0 20px rgba(255,255,255,0.2);
+    animation: pulso-amarelo 1s infinite;
+}
+
+.verde {
+    background: #34495e;
+}
+
+.verde.ativa {
+    background: #27ae60;
+    box-shadow: 0 0 30px #27ae60, inset 0 0 20px rgba(255,255,255,0.2);
+    animation: pulso-verde 2s infinite;
+}
+
+/* Animações das luzes */
+@keyframes pulso-vermelho {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes pulso-amarelo {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+@keyframes pulso-verde {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Botão do pedestre */
+.botao-pedestre {
+    background: linear-gradient(145deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.botao-pedestre:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.botao-pedestre:active {
+    transform: translateY(0);
+}
+
+.botao-pedestre.solicitado {
+    background: linear-gradient(145deg, #e67e22, #d35400);
+    animation: piscar 1s infinite;
+}
+
+.botao-pedestre:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+@keyframes piscar {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.6; }
+}
+
+/* Display de mensagens */
+.exibe-mensagem {
+    background: linear-gradient(145deg, #2ecc71, #27ae60);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.exibe-mensagem.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.exibe-mensagem.alerta {
+    background: linear-gradient(145deg, #f39c12, #e67e22);
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
+.exibe-mensagem.perigo {
+    background: linear-gradient(145deg, #e74c3c, #c0392b);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.exibe-mensagem.info {
+    background: linear-gradient(145deg, #3498db, #2980b9);
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+/* Painel de informações */
+.painel-info {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.contador {
+    font-size: 48px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+.status {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.status.carros-andando { color: #27ae60; }
+.status.carros-atencao { color: #f39c12; }
+.status.carros-parados { color: #e74c3c; }
+.status.pedestres-atravessando { color: #3498db; }
+
+.info-fase {
+    font-size: 14px;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* Controles */
+.controles {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.botao-controle {
+    background: #95a5a6;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.botao-controle:hover {
+    background: #7f8c8d;
+}
+
+/* Modo de emergência */
+.modo-emergencia {
+    background: linear-gradient(145deg, #e74c3c, #c0392b) !important;
+}
+
+.modo-emergencia .luz.ativa {
+    animation: piscar-emergencia 0.5s infinite !important;
+}
+
+@keyframes piscar-emergencia {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+/* Animações adicionais */
+@keyframes slide-mensagem {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.exibe-mensagem.entrar {
+    animation: slide-mensagem 0.5s ease-out;
+}
